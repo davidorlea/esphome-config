@@ -1,0 +1,25 @@
+dist: bionic
+language: python
+python:
+  - '3.8'
+cache:
+  pip: true
+  directories:
+    - $HOME/.cache/pre-commit
+before_install:
+  - pip install -U pip
+install:
+  - pip install -r requirements.txt
+  - pip install -r requirements_test.txt
+before_script:
+  - mv secrets_dummy.yaml secrets.yaml
+  - pre-commit install-hooks
+script:
+  - pre-commit run yamllint --all-files
+  - esphome bedroom_bed.yaml compile
+  - esphome bedroom_ceiling_light.yaml compile
+  - esphome hall_ceiling_light.yaml compile
+  - esphome kitchen_ceiling_light.yaml compile
+  - esphome living_room_ceiling_light.yaml compile
+  - esphome outdoor_frontdoor_light.yaml compile
+  - esphome outdoor_backdoor_light.yaml compile
