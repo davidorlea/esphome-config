@@ -1,0 +1,75 @@
+esphome:
+  name: kitchen_fridge
+  comment: Kitchen Fridge
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: true
+
+  ap:
+    ssid: "Kitchen Fridge"
+    password: !secret wifi_ap_password
+    ap_timeout: 5min
+
+captive_portal:
+
+logger:
+  baud_rate: 0
+
+api:
+
+ota:
+
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+switch:
+  - platform: gpio
+    name: "Kitchen Fridge Relay"
+    pin: GPIO12
+    id: relay_1
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    on_press:
+      then:
+        - switch.toggle: relay_1
+    internal: true
+    id: switch_1
+
+  - platform: status
+    name: "Kitchen Fridge Status"
+
+sensor:
+  - platform: cse7766
+    update_interval: 10s
+    current:
+      name: "Kitchen Fridge Current"
+      id: current_1
+    voltage:
+      name: "Kitchen Fridge Voltage"
+      id: voltage_1
+    power:
+      name: "Kitchen Fridge Power"
+      id: power_1
+
+  - platform: total_daily_energy
+    name: "Kitchen Fridge Total Daily Energy"
+    power_id: power_1
+    unit_of_measurement: Wh
+    accuracy_decimals: 1
+
+  - platform: wifi_signal
+    name: "Kitchen Fridge Signal"
