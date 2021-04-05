@@ -42,12 +42,14 @@ binary_sensor:
     threshold: 9
     filters:
       - delayed_on_off: 2s
+
   - platform: esp32_touch
     id: right
     pin: GPIO2
     threshold: 9
     filters:
       - delayed_on_off: 2s
+
   - platform: template
     name: Bedroom Bed Occupancy
     device_class: occupancy
@@ -57,10 +59,10 @@ binary_sensor:
       } else {
         return false;
       }
+
   - platform: status
     name: "Bedroom Bed Status"
 
 sensor:
   - platform: wifi_signal
     name: "Bedroom Bed Signal"
-    update_interval: 60s
