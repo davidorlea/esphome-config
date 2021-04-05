@@ -6,6 +6,7 @@
 **/.piolibdeps/
 **/lib/
 **/src/
+**/partitions.csv
 **/platformio.ini
 /.esphome/
 /venv/
