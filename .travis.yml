@@ -20,6 +20,7 @@ script:
   - esphome compile bedroom_ceiling_light.yaml
   - esphome compile hall_ceiling_light.yaml
   - esphome compile kitchen_ceiling_light.yaml
+  - esphome compile kitchen_coffee_maschine.yaml
   - esphome compile living_room_ceiling_light.yaml
   - esphome compile outdoor_frontdoor_light.yaml
   - esphome compile outdoor_backdoor_light.yaml
