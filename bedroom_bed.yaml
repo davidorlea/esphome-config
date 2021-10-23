@@ -26,6 +26,7 @@ ota:
 time:
   - platform: homeassistant
     id: homeassistant_time
+    timezone: !secret time_timezone
 
 esp32_touch:
   setup_mode: false

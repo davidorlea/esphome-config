@@ -25,6 +25,7 @@ ota:
 time:
   - platform: homeassistant
     id: homeassistant_time
+    timezone: !secret time_timezone
 
 output:
   - platform: gpio
