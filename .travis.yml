@@ -16,10 +16,10 @@ before_script:
   - pre-commit install-hooks
 script:
   - pre-commit run yamllint --all-files
-  - esphome bedroom_bed.yaml compile
-  - esphome bedroom_ceiling_light.yaml compile
-  - esphome hall_ceiling_light.yaml compile
-  - esphome kitchen_ceiling_light.yaml compile
-  - esphome living_room_ceiling_light.yaml compile
-  - esphome outdoor_frontdoor_light.yaml compile
-  - esphome outdoor_backdoor_light.yaml compile
+  - esphome compile bedroom_bed.yaml
+  - esphome compile bedroom_ceiling_light.yaml
+  - esphome compile hall_ceiling_light.yaml
+  - esphome compile kitchen_ceiling_light.yaml
+  - esphome compile living_room_ceiling_light.yaml
+  - esphome compile outdoor_frontdoor_light.yaml
+  - esphome compile outdoor_backdoor_light.yaml
