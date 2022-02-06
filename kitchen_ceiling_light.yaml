@@ -19,6 +19,7 @@ captive_portal:
 logger:
 
 api:
+  reboot_timeout: 0s
 
 ota:
 
