@@ -1,0 +1,33 @@
+# See https://developers.home-assistant.io/docs/documenting/yaml-style-guide/
+
+extends: default
+
+rules:
+  colons:
+    max-spaces-before: 0
+    max-spaces-after: 1
+  comments:
+    require-starting-space: true
+    min-spaces-from-content: 1
+  document-start: disable
+  hyphens:
+    max-spaces-after: 1
+  indentation:
+    level: error
+    spaces: 2
+    indent-sequences: true
+    check-multi-line-strings: false
+  line-length:
+    level: warning
+    max: 120
+  new-line-at-end-of-file:
+    level: error
+  new-lines:
+    type: unix
+  truthy:
+    allowed-values: ["true", "false"]
+    check-keys: true
+  quoted-strings:
+    quote-type: double
+    required: only-when-needed
+    allow-quoted-quotes: true
