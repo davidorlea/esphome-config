@@ -10,7 +10,7 @@ wifi:
   fast_connect: true
 
   ap:
-    ssid: "Kitchen Ceiling Light"
+    ssid: Kitchen Ceiling Light
     password: !secret wifi_ap_password
     ap_timeout: 5min
 
@@ -36,7 +36,7 @@ output:
 
 light:
   - platform: binary
-    name: "Kitchen Ceiling Light"
+    name: Kitchen Ceiling Light
     output: relay_1
     id: light_1
 
@@ -52,8 +52,8 @@ binary_sensor:
     id: switch_1
 
   - platform: status
-    name: "Kitchen Ceiling Light Status"
+    name: Kitchen Ceiling Light Status
 
 sensor:
   - platform: wifi_signal
-    name: "Kitchen Ceiling Light Signal"
+    name: Kitchen Ceiling Light Signal

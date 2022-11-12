@@ -10,7 +10,7 @@ wifi:
   fast_connect: true
 
   ap:
-    ssid: "Kitchen Coffee Machine"
+    ssid: Kitchen Coffee Machine
     password: !secret wifi_ap_password
     ap_timeout: 5min
 
@@ -35,7 +35,7 @@ time:
 
 switch:
   - platform: gpio
-    name: "Kitchen Coffee Machine Relay"
+    name: Kitchen Coffee Machine Relay
     pin: GPIO12
     id: relay_1
 
@@ -52,26 +52,26 @@ binary_sensor:
     id: switch_1
 
   - platform: status
-    name: "Kitchen Coffee Machine Status"
+    name: Kitchen Coffee Machine Status
 
 sensor:
   - platform: cse7766
     update_interval: 10s
     current:
-      name: "Kitchen Coffee Machine Current"
+      name: Kitchen Coffee Machine Current
       id: current_1
     voltage:
-      name: "Kitchen Coffee Machine Voltage"
+      name: Kitchen Coffee Machine Voltage
       id: voltage_1
     power:
-      name: "Kitchen Coffee Machine Power"
+      name: Kitchen Coffee Machine Power
       id: power_1
 
   - platform: total_daily_energy
-    name: "Kitchen Coffee Machine Total Daily Energy"
+    name: Kitchen Coffee Machine Total Daily Energy
     power_id: power_1
     unit_of_measurement: Wh
     accuracy_decimals: 1
 
   - platform: wifi_signal
-    name: "Kitchen Coffee Machine Signal"
+    name: Kitchen Coffee Machine Signal

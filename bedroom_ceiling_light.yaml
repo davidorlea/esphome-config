@@ -10,7 +10,7 @@ wifi:
   fast_connect: true
 
   ap:
-    ssid: "Bedroom Ceiling Light"
+    ssid: Bedroom Ceiling Light
     password: !secret wifi_ap_password
     ap_timeout: 5min
 
@@ -36,7 +36,7 @@ output:
 
 light:
   - platform: binary
-    name: "Bedroom Ceiling Light"
+    name: Bedroom Ceiling Light
     output: relay_1
     id: light_1
 
@@ -52,8 +52,8 @@ binary_sensor:
     id: switch_1
 
   - platform: status
-    name: "Bedroom Ceiling Light Status"
+    name: Bedroom Ceiling Light Status
 
 sensor:
   - platform: wifi_signal
-    name: "Bedroom Ceiling Light Signal"
+    name: Bedroom Ceiling Light Signal

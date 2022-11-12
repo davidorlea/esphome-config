@@ -10,7 +10,7 @@ wifi:
   fast_connect: true
 
   ap:
-    ssid: "Hall Ceiling Light"
+    ssid: Hall Ceiling Light
     password: !secret wifi_ap_password
     ap_timeout: 5min
 
@@ -36,7 +36,7 @@ output:
 
 light:
   - platform: binary
-    name: "Hall Ceiling Light"
+    name: Hall Ceiling Light
     output: relay_1
     id: light_1
 
@@ -52,8 +52,8 @@ binary_sensor:
     id: switch_1
 
   - platform: status
-    name: "Hall Ceiling Light Status"
+    name: Hall Ceiling Light Status
 
 sensor:
   - platform: wifi_signal
-    name: "Hall Ceiling Light Signal"
+    name: Hall Ceiling Light Signal

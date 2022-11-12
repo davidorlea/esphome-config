@@ -11,7 +11,7 @@ wifi:
   power_save_mode: none
 
   ap:
-    ssid: "Bedroom Bed"
+    ssid: Bedroom Bed
     password: !secret wifi_ap_password
     ap_timeout: 5min
 
@@ -63,8 +63,8 @@ binary_sensor:
       }
 
   - platform: status
-    name: "Bedroom Bed Status"
+    name: Bedroom Bed Status
 
 sensor:
   - platform: wifi_signal
-    name: "Bedroom Bed Signal"
+    name: Bedroom Bed Signal
