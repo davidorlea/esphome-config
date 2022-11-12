@@ -1,7 +1,8 @@
 esphome:
   name: bedroom_bed
   comment: Bedroom Bed
-  platform: ESP32
+
+esp32:
   board: pico32
 
 wifi:
