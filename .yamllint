@@ -27,7 +27,3 @@ rules:
   truthy:
     allowed-values: ["true", "false"]
     check-keys: true
-  quoted-strings:
-    quote-type: double
-    required: only-when-needed
-    allow-quoted-quotes: true
