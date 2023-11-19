@@ -1,0 +1,40 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+  schedule:
+    - cron: 0 3 * * *
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-config:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        tag: [stable, beta]
+        source:
+          - bedroom_bed.yaml
+          - bedroom_ceiling_light.yaml
+          - hall_ceiling_light.yaml
+          - kitchen_ceiling_light.yaml
+          - kitchen_coffee_machine.yaml
+          - living_room_ceiling_light.yaml
+          - outdoor_frontdoor_light.yaml
+          - outdoor_backdoor_light.yaml
+    env:
+      DEFAULT_ESPHOME: ghcr.io/esphome/esphome:${{ matrix.tag }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Setup secrets
+        run: mv secrets_dummy.yaml secrets.yaml
+      - name: Pull Docker image
+        run: docker pull ${{ env.DEFAULT_ESPHOME }}
+      - name: Compile ESPHome source ${{ matrix.source }}
+        run: docker run --rm -v ${{ github.workspace }}:/config ${{ env.DEFAULT_ESPHOME }} compile /config/${{ matrix.source }}
