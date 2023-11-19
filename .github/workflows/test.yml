@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check-config:
+  compile-source:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -36,5 +36,5 @@ jobs:
         run: mv secrets_dummy.yaml secrets.yaml
       - name: Pull Docker image
         run: docker pull ${{ env.DEFAULT_ESPHOME }}
-      - name: Compile ESPHome source ${{ matrix.source }}
+      - name: Compile ESPHome source
         run: docker run --rm -v ${{ github.workspace }}:/config ${{ env.DEFAULT_ESPHOME }} compile /config/${{ matrix.source }}
