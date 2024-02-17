@@ -57,16 +57,24 @@ binary_sensor:
 
 sensor:
   - platform: cse7766
-    update_interval: 10s
     current:
       name: Kitchen Coffee Machine Current
       id: current_1
+      filters:
+        - filter_out: nan
+        - throttle_average: 10s
     voltage:
       name: Kitchen Coffee Machine Voltage
       id: voltage_1
+      filters:
+        - filter_out: nan
+        - throttle_average: 10s
     power:
       name: Kitchen Coffee Machine Power
       id: power_1
+      filters:
+        - filter_out: nan
+        - throttle_average: 10s
 
   - platform: total_daily_energy
     name: Kitchen Coffee Machine Total Daily Energy
