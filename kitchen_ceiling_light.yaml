@@ -30,28 +30,20 @@ time:
     id: homeassistant_time
     timezone: !secret time_timezone
 
-output:
+switch:
   - platform: gpio
-    pin: 14
-    id: relay_1
-    inverted: false
-
-light:
-  - platform: binary
-    name: Kitchen Ceiling Light
-    output: relay_1
-    id: light_1
+    name: Kitchen Ceiling Light Switch
+    pin:
+      number: 14
+      inverted: false
+    restore_mode: ALWAYS_ON
 
 binary_sensor:
   - platform: gpio
+    name: Kitchen Ceiling Light Button
     pin:
       number: 5
       mode: INPUT_PULLUP
-    on_state:
-      then:
-        - light.toggle: light_1
-    internal: true
-    id: switch_1
 
   - platform: status
     name: Kitchen Ceiling Light Status
