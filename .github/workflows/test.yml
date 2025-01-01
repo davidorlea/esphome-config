@@ -18,7 +18,6 @@ jobs:
       matrix:
         tag: [stable, beta]
         source:
-          - bedroom_bed.yaml
           - bedroom_ceiling_light.yaml
           - hall_ceiling_light.yaml
           - kitchen_ceiling_light.yaml
